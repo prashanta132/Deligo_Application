@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
-import  {PiLock } from "react-icons";
+import { PiLock } from "react-icons";
 
 const Header = () => {
   // distructuring the main menu from menu object
@@ -34,6 +34,11 @@ const Header = () => {
 
   // Router
   const router = useRouter();
+
+  
+  const handleSignUp = () => {
+    router.push('/signup'); // Redirect to the signup page
+  };
 
   //stop scrolling when nav is open
   useEffect(() => {
@@ -158,8 +163,8 @@ const Header = () => {
               </div>
             )}
           </div>
-          
-          
+
+
           <button
             onClick={() => setShowMenu(!showMenu)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white lg:hidden"
@@ -181,8 +186,12 @@ const Header = () => {
           </button>
         </div>
 
-        <button className="d-block  btn btn-primary mt-4 w-small" type="submit">
-        Sign In
+
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none"
+          onClick={handleSignUp}
+        >
+          Sign Up
         </button>
       </nav>
       {showMenu && (

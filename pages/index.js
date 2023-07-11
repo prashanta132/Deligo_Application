@@ -18,6 +18,8 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import TestimonialSlider from "components/Testinomial";
 import Footer from "components/Footer";
+import SearchLocation from "@layouts/components/SearchLocation";
+import SignUpPage from "@layouts/components/SignUp";
 
 const Home = ({ banner, posts }) => {
   // define state
@@ -108,6 +110,8 @@ const Home = ({ banner, posts }) => {
                 </div>
               )}
             </div>
+            {/* <SearchLocation/> */}
+            <SignUpPage/>
             {/* <form onSubmit={handleSearchSubmit} className="mb-4 flex">
             <input
               type="text"
@@ -240,73 +244,58 @@ const Home = ({ banner, posts }) => {
           <div className="container mx-auto p-8">
             <h1 className="text-2xl font-bold text-center mb-4">Let’s  Start  Earning  with  Deligo</h1>
             <p className="text-2xl text-center font-thin mb-4">Join our online marketplace revolution and boost your income.</p>
-            <div className="flex flex-col lg:flex-row">
-              <div className="w-full lg:w-1/2  text-white flex flex-col items-center lg:items-start p-4 mb-4 lg:mb-0">
-                <img src="/images/seller.jpg" alt="Image 1" className="w-1/2 lg:w-full mb-4" />
-                <div>
-                  <h1 className="text-3xl font-bold text-center mb-4">Become a Seller</h1>
-                  <p className="text-center lg:text-left mb-4">
-                    Register as seller & open shop in 6amMart to start your business
-
-                  </p>
+            <div className="flex flex-col md:flex-row">
+              <div className="w-full md:w-1/2 text-black flex flex-col items-center p-4 mb-4 md:mb-0">
+                <div className="flex flex-col md:flex-row items-center">
+                  <img src="/images/seller.jpg" alt="Image 1" className="w-1/2 md:w-1/4 mb-4" />
+                  <div>
+                    <h1 className="text-3xl font-bold text-center mb-4">Become a Seller</h1>
+                    <p className="text-center md:text-left md:ml-4 mb-4">
+                      Register as seller & open shop in 6amMart to start your business
+                    </p>
+                  </div>
+                  <div className="flex justify-center md:justify-start">
+                    <button className="bg-green-500 text-white px-4 py-2 rounded">Register</button>
+                  </div>
                 </div>
-                <div><button className="bg-green-500 text-white px-4 py-2 rounded">Register</button></div>
 
               </div>
-              <div className="w-full lg:w-1/2  text-white flex flex-col items-center lg:items-start p-4">
-                <img src="/images/delivery-man.png" alt="Image 2" className="w-1/2 lg:w-full mb-4" />
-                <div>
-                  <h1 className="text-3xl font-bold text-center mb-4">Become a Delivery Man</h1>
-                  <p className="text-center lg:text-left mb-4">
-                    Register as delivery man and earn money
-                  </p>
+              <div className="w-full md:w-1/2  text-black flex flex-col items-center p-4">
+                <div className="flex flex-col md:flex-row items-center">
+
+                  <img src="/images/delivery-man.png" alt="Image 2" className="w-1/2 md:w-1/4 mb-4" />
+                  <div>
+                    <h1 className="text-3xl font-bold text-center mb-4">Become a Delivery Man</h1>
+                    <p className="text-center md:text-left md:ml-4 mb-4">
+                      Register as delivery man and earn money
+                    </p>
+                  </div>
+                  <div className="flex justify-center md:justify-start">
+                    <button className="bg-green-500 text-white px-4 py-2 rounded">Register</button>
+                  </div>
                 </div>
 
-                <button className="bg-green-500 text-white px-4 py-2 rounded">Register</button>
               </div>
             </div>
+          </div>
+          <div className="flex justify-center ">
+            <img
+              src="/images/banner.png"
+              alt="Banner Image"
+              className="w-full"
+            />
           </div>
 
 
 
 
-
-
-          {/* <div className="container mx-auto p-8">
-            <h1 className="">Let’s  Start  Earning  with  6amMart</h1>
-            <p className="text-2xl text-center mb-4">Join our online marketplace revolution and boost your income.</p>
-            <div className="flex">
-              <div className="w-1/2 text-black flex items-center p-4">
-                <img src="/images/seller.jpg" alt="Image 1" className="w-1/3 mr-4" />
-                <div>
-                  <h1 className="text-3xl font-bold text-center mb-4">Become a Seller</h1>
-                  <p className="mb-4">
-                    Register as seller & open shop in 6amMart to start your business
-                  </p>
-
-                </div>
-                <div><button className="btn btn-primary text-white px-4 py-2 rounded">Register</button></div>
-              </div>
-              <div className="w-1/2  text-black flex items-center p-4">
-                <img src="/images/delivery-man.png" alt="Image 2" className="w-1/3 mr-4" />
-                <div>
-                  <h1 className="text-3xl font-bold text-center mb-4">Become a Delivery Man</h1>
-                  <p className="mb-4">
-                    Register as delivery man and earn money
-                  </p>
-
-                </div>
-                <div><button className="btn btn-primary text-white px-4 py-2 rounded">Register</button></div>
-              </div>
-            </div>
-          </div> */}
-          <div className="container mx-auto">
+          {/* <div className="container mx-auto">
             <img
               src="/images/banner.png"
               alt="Banner Image"
               className="w-full h-auto sticky"
             />
-          </div>
+          </div> */}
           <section className="text-gray-600 body-font">
             <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
               <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">

@@ -1,42 +1,83 @@
-// pages/SearchLocation.js
+import React, { useState } from 'react';
+import axios from 'axios';
+import Geocode from 'react-geocode';
+import Script from 'next/script';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-google-autocomplete';
 
-import { useState } from 'react';
+const SearchLocation = () => {
+  const [address, setAddress] = useState('');
+  const [coordinates, setCoordinates] = useState({
+    lat: null,
+    lng: null,
+  });
 
-// CSS file
-import styles from "styles/searchlocation.module.scss";
-
-export default function SearchLocation() {
-  const [selectedLocation, setSelectedLocation] = useState('');
-
-  const handleLocateMe = () => {
-    // Your logic for retrieving the user's location from the map goes here
-    // For simplicity, let's assume it returns a string representing the location
-    
-    const userLocation = 'New York City';
-    setSelectedLocation(userLocation);
+  const handleSelect = async (value) => {
+    const results = await geocodeByAddress(value);
+    const { lat, lng } = await getLatLng(results[0]);
+    setAddress(value);
+    setCoordinates({ lat, lng });
   };
 
-  const handleExplore = () => {
-    // Your logic for exploring the selected location goes here
-    console.log(`Exploring location: ${selectedLocation}`);
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coordinates.lat},${coordinates.lng}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`
+      );
+      const address = response.data.results[0].formatted_address;
+      setAddress(address);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
-    <div className={styles.container}>
-      <h1>Search Location</h1>
-      <div className={styles.dropdown}>
-        <button className={styles.locateButton} onClick={handleLocateMe}>
-          Locate Me
-        </button>
-        {selectedLocation && (
-          <div className={styles.selectedLocation}>
-            Selected Location: {selectedLocation}
+    <div>
+      <Script
+        strategy="beforeInteractive"
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
+      />
+      <PlacesAutocomplete
+        value={address}
+        onChange={setAddress}
+        onSelect={handleSelect}
+      >
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
+            <input
+              {...getInputProps({
+                placeholder: 'Search Places...',
+                className: 'w-full py-2 px-4 rounded-lg',
+              })}
+            />
+            <div>
+              {loading && <div>Loading...</div>}
+              {suggestions.map((suggestion) => {
+                const style = {
+                  backgroundColor: suggestion.active ? '#41b6e6' : '#fff',
+                  cursor: 'pointer',
+                  padding: '0.5rem',
+                };
+                return (
+                  <div {...getSuggestionItemProps(suggestion, { style })}>
+                    {suggestion.description}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
-      </div>
-      <button className={styles.exploreButton} onClick={handleExplore}>
-        Explore
+      </PlacesAutocomplete>
+      <button
+        onClick={handleSearch}
+        className="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg"
+      >
+        Search
       </button>
     </div>
   );
-}
+};
+
+export default SearchLocation;
