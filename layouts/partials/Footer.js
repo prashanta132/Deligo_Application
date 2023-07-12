@@ -39,7 +39,7 @@ const Footer = () => {
                 <div className="flex flex-col md:w-1/2 md:text-middle">
                     <ul className="text-sm">
                         <li className="mb-2">
-                            <Link href="/about">Become a Store Owner</Link>
+                            <Link href="/storeregistration">Become a Store Owner</Link>
                         </li>
                         <li className="mb-2">
                             <Link href="/services">Become a Delivery Man</Link>
