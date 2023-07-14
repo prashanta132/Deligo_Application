@@ -22,13 +22,13 @@ const Footer = () => {
                     <div className="mt-4">
                         <Link href="https://play.google.com" target="_blank" rel="noopener noreferrer" className="mr-2">
                             <button className="bg-trueGray-900 hover:bg-trueGray-600 text-white font-semibold py-2 px-4 rounded">
-                            <img src="/icons/google_play1.png" alt="Email" className="w-6 h-6" />
+                                <img src="/icons/google_play1.png" alt="Email" className="w-6 h-6" />
                                 Google Play
                             </button>
                         </Link>
                         <Link href="https://itunes.apple.com" target="_blank" rel="noopener noreferrer" className="mr-2">
                             <button className="bg-trueGray-900 hover:bg-trueGray-600 text-white font-semibold py-2 px-4 rounded">
-                            <img src="/icons/app1.png" alt="Email" className="w-6 h-6"/>
+                                <img src="/icons/app1.png" alt="Email" className="w-6 h-6" />
                                 App Store
                             </button>
                         </Link>
@@ -42,16 +42,16 @@ const Footer = () => {
                             <Link href="/storeregistration">Become a Store Owner</Link>
                         </li>
                         <li className="mb-2">
-                            <Link href="/services">Become a Delivery Man</Link>
+                            <Link href="/deliverymanregistration">Become a Delivery Man</Link>
                         </li>
                         <li className="mb-2">
-                            <Link href="/blog">Help & Support</Link>
+                            <Link href="/help">Help & Support</Link>
                         </li>
                         <li className="mb-2">
-                            <Link href="/contact">Terms & Conditions </Link>
+                            <Link href="/termsandcondition">Terms & Conditions </Link>
                         </li>
                         <li className="mb-2">
-                            <Link href="/contact">Privacy Policy </Link>
+                            <Link href="/privacy">Privacy Policy </Link>
                         </li>
                         <li className="mb-2">
                             <Link href="/contact">Refund Policy </Link>
@@ -75,7 +75,7 @@ const Footer = () => {
                             <img src="/icons/phone-1.png" alt="Contact" className="w-6 h-6" /><h6>Contact Us</h6>
                             <p>91-9265616481</p>
                         </Link>
-                        <br/>
+                        <br />
                         <Link href="/contact">
                             <img src="/icons/find1.png" alt="find Us" className="w-6 h-6" /><h6>Find Us Here</h6>
                             <p>House: 00, Road: 00, City-0000, Country</p>

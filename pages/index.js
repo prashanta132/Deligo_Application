@@ -19,7 +19,7 @@ import Image from "next/image";
 import TestimonialSlider from "components/Testinomial";
 import Footer from "components/Footer";
 import SearchLocation from "@layouts/components/SearchLocation";
-import SignUpPage from "@layouts/components/SignUp";
+// import SignUpPage from "@layouts/components/SignUp";
 
 const Home = ({ banner, posts }) => {
   // define state
@@ -66,8 +66,8 @@ const Home = ({ banner, posts }) => {
           <ImageFallback
             className="absolute bottom-0 left-0 z-[-1]"
             src={"/images/hero_background.png"}
-            width={1905}
-            height={295}
+            width={1260}
+            height={360}
             alt="banner-shape"
             priority
           />
@@ -111,7 +111,7 @@ const Home = ({ banner, posts }) => {
               )}
             </div>
             {/* <SearchLocation/> */}
-            <SignUpPage/>
+            {/* <SignUpPage/> */}
             {/* <form onSubmit={handleSearchSubmit} className="mb-4 flex">
             <input
               type="text"
